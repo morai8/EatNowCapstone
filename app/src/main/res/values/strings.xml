@@ -8,4 +8,11 @@
     <string name="title_notifications">Notifications</string>
     <string name="scan">Scan</string>
     <string name="akun">Akun</string>
+    <string name="enter_bmi">Enter BMI</string>
+    <string name="submit">Submit</string>
+    <string name="height">Height</string>
+    <string name="weight">Weight</string>
+    <string name="detail">Detail</string>
+    <string name="deskripsi">Deskripsi</string>
+
 </resources>
