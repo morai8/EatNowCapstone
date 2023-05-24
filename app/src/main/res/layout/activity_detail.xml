@@ -60,7 +60,7 @@
         android:layout_marginTop="40dp"
         android:paddingStart="32dp"
         android:paddingEnd="10dp"
-        android:text="@string/deskripsi"
+        android:text="@string/description"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_nama_makan" />

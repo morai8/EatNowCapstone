@@ -7,16 +7,24 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="scan">Scan</string>
-    <string name="akun">Akun</string>
     <string name="enter_bmi">Enter BMI</string>
     <string name="submit">Submit</string>
     <string name="height">Height</string>
     <string name="weight">Weight</string>
     <string name="detail">Detail</string>
-    <string name="deskripsi">Deskripsi</string>
+    <string name="description">Deskripsi</string>
     <string name="genderAsk">What is Your Gender</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
     <string name="next">Next</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="account">Account</string>
+    <string name="edit_bmi">Edit BMI</string>
+    <string name="tap_edit">Tap to Edit Your BMI</string>
+    <string name="change_password">Change Password</string>
+    <string name="tap_change">Change Your Password Here</string>
+    <string name="bantuan">Bantuan dan Masukan</string>
+    <string name="about">Tentang Aplikasi</string>
+    <string name="log_out">Log Out</string>
 
 </resources>
