@@ -14,5 +14,9 @@
     <string name="weight">Weight</string>
     <string name="detail">Detail</string>
     <string name="deskripsi">Deskripsi</string>
+    <string name="genderAsk">What is Your Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="next">Next</string>
 
 </resources>
