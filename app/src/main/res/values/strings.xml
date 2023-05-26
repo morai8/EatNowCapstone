@@ -26,5 +26,7 @@
     <string name="bantuan">Bantuan dan Masukan</string>
     <string name="about">Tentang Aplikasi</string>
     <string name="log_out">Log Out</string>
-
+    <string name="full_name">Full Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
 </resources>

@@ -30,6 +30,7 @@
         app:layout_constraintTop_toBottomOf="@+id/iv_logo" />
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailLayout"
+        android:hint="@string/email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -38,7 +39,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_sign_in"
-        app:startIconDrawable="@drawable/Message">
+        app:startIconDrawable="@drawable/message">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/emailInputField"
             android:layout_width="match_parent"
@@ -47,6 +48,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/passwordLayout"
+        android:hint="@string/password"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
