@@ -13,3 +13,10 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+
+app/src/main/AndroidManifest.xml
+app/src/main/res/layout/activity_landing.xml
+app/src/main/res/layout/activity_register.xml
+app/src/main/res/layout/activity_sign_in.xml
+app/src/main/res/values/strings.xml
