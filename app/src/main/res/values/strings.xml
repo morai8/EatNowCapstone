@@ -29,4 +29,7 @@
     <string name="full_name">Full Name</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
+    <string name="current">Current Password</string>
+    <string name="new_password">New Password</string>
+    <string name="reEnter">Re-Enter New Password</string>
 </resources>

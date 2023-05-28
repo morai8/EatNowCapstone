@@ -13,6 +13,12 @@
         android:theme="@style/Theme.EatNowCapstone"
         tools:targetApi="31">
         <activity
+            android:name=".ChangePasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditBmiActivity"
+            android:exported="false" />
+        <activity
             android:name=".ResultActivity"
             android:exported="false" />
         <activity
