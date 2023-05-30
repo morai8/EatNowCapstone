@@ -137,7 +137,6 @@
             android:layout_margin="12dp"
             android:padding="5dp"
             android:src="@drawable/ic_question"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivLock" />
 

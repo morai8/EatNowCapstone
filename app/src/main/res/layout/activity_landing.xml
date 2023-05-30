@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/buttonSignIn"
+        android:id="@+id/buttonRegister"
         android:layout_width="328dp"
         android:layout_height="48dp"
         android:backgroundTint="@color/light_green"
@@ -29,7 +29,7 @@
         app:layout_constraintTop_toBottomOf="@+id/iv_logo" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/buttonRegister"
+        android:id="@+id/buttonSignIn"
         android:layout_width="328dp"
         android:layout_height="48dp"
         android:layout_marginTop="20dp"
@@ -39,7 +39,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonSignIn"
+        app:layout_constraintTop_toBottomOf="@+id/buttonRegister"
         app:strokeColor="@color/light_green"
         app:strokeWidth="2dp" />
 
