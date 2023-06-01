@@ -17,9 +17,16 @@ try {
   console.error(error);
 }
 
-app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+app.use(cors());
+// app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 app.use(cookieParser());
 app.use(express.json());
 app.use(router);
 
-app.listen(5000, () => console.log("Server running at port 5000"));
+app.get("/", (req, res) => {
+  res.send("Welcome to API");
+});
+
+app.listen(5000, () =>
+  console.log("Server running at port http://localhost:5000")
+);

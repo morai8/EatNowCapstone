@@ -5,6 +5,7 @@ import {
   Login,
   Logout,
   updateProfile,
+  changePassword,
 } from "../controller/Users.js";
 import { verifyToken } from "../middleware/VerifyToken.js";
 import { refreshToken } from "../controller/RefreshToken.js";
@@ -17,5 +18,6 @@ router.post("/login", Login);
 router.get("/token", refreshToken);
 router.delete("/logout", Logout);
 router.put("/profile", verifyToken, updateProfile);
+router.put("/change-password", verifyToken, changePassword);
 
 export default router;

@@ -1,7 +1,6 @@
 # Get Users
 GET http://localhost:5000/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsIm5hbWUiOiJjb2JhNCIsImVtYWlsIjoiY29iYTRAZ21haWwuY29tIiwiaWF0IjoxNjg1MTA5ODQ4LCJleHAiOjE2ODUxMDk4Njh9.uD9TM5ABVe_xOZT2Pu6PPRIpqLhbiScINr6qr0w6RyA
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoic2FiaWxAZ21haWwuY29tIiwibmFtZSI6InNhYmlsIiwiaWF0IjoxNjg1NTk5Nzk5LCJleHAiOjE2ODU2ODYxOTl9.fvH_0V4yNNx4L19GUnlpcd_wcmMM1SAOkUFrYdP7FZU
 ###
 
 # Register
@@ -9,8 +8,8 @@ POST http://localhost:5000/register
 Content-Type: application/json
 
 {
-    "name": "coba4",
-    "email": "coba4@gmail.com",
+    "name": "sabil",
+    "email": "sabil@gmail.com",
     "password": "54321",
     "confPassword": "54321"
 }
@@ -22,8 +21,8 @@ POST http://localhost:5000/login
 Content-Type: application/json
 
 {
-    "email": "coba4@gmail.com",
-    "password": "54321" 
+    "email": "sabil@gmail.com",
+    "password": "password" 
 }
 
 ###
@@ -35,14 +34,28 @@ GET http://localhost:5000/token
 
 # Update Profile
 PUT http://localhost:5000/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImVtYWlsIjoiY29iYTNAZ21haWwuY29tIiwibmFtZSI6ImNvYmEzIiwiaWF0IjoxNjg0ODUxNTc4LCJleHAiOjE2ODQ5Mzc5Nzh9.UtAmJcChDatNLlz2h1PFD3_-m7qJMtc1LTryjMT8MOU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoic2FiaWxAZ21haWwuY29tIiwibmFtZSI6InNhYmlsIiwiaWF0IjoxNjg1NTk5Nzk5LCJleHAiOjE2ODU2ODYxOTl9.fvH_0V4yNNx4L19GUnlpcd_wcmMM1SAOkUFrYdP7FZU
 Content-Type: application/json
 
 {
   "gender": "female",
-  "weight": 45,
+  "weight": 50,
   "height": 165
 }
+
+###
+
+# Change Password
+PUT http://localhost:5000/change-password
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoic2FiaWxAZ21haWwuY29tIiwibmFtZSI6InNhYmlsIiwiaWF0IjoxNjg1NTk5Nzk5LCJleHAiOjE2ODU2ODYxOTl9.fvH_0V4yNNx4L19GUnlpcd_wcmMM1SAOkUFrYdP7FZU
+Content-Type: application/json
+
+{
+  "currentPassword": "54321",
+  "newPassword": "password",
+  "reenterPassword": "password"
+}
+
 
 ###
 

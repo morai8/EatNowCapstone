@@ -197,3 +197,37 @@ export const updateProfile = async (req, res) => {
       .json({ error: "An error occurred while updating the profile" });
   }
 };
+
+export const changePassword = async (req, res) => {
+  try {
+    const { currentPassword, newPassword, reenterPassword } = req.body;
+    const user = await Users.findOne({ email: req.userId });
+
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    const isMatch = await bcrypt.compare(currentPassword, user.password);
+    if (!isMatch) {
+      return res.status(400).json({ error: "Invalid current password" });
+    }
+
+    if (newPassword !== reenterPassword) {
+      return res
+        .status(400)
+        .json({ error: "New password and re-entered password do not match" });
+    }
+
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+    user.password = hashedPassword;
+    await user.save();
+
+    res.json({ msg: "Password changed successfully" });
+  } catch (error) {
+    console.error("An error occurred while changing password:", error);
+    res.status(500).json({
+      error: "An error occurred while changing password",
+      details: error.message,
+    });
+  }
+};
