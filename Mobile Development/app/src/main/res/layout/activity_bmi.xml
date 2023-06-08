@@ -10,8 +10,8 @@
         android:id="@+id/iv_logo"
         android:layout_width="186dp"
         android:layout_height="104dp"
-        android:src="@drawable/logo"
         android:layout_marginTop="48dp"
+        android:src="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -20,12 +20,13 @@
         android:id="@+id/tv_bmi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/enter_bmi"
-        android:textStyle="bold"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="20dp"
         android:paddingBottom="24dp"
+        android:text="@string/enter_bmi"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_logo" />
 
@@ -35,10 +36,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
+        android:hint="@string/height"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_bmi"
-        android:hint="@string/height">
+        app:layout_constraintTop_toBottomOf="@+id/rg_gender">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/heightField"
@@ -63,6 +64,47 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Added margin -->
+
+    <TextView
+        android:id="@+id/tv_genderAsk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="@string/genderAsk"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_bmi" />
+
+    <RadioGroup
+        android:id="@+id/rg_gender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_genderAsk">
+
+        <RadioButton
+            android:id="@+id/rb_male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="24dp"
+            android:text="@string/male" />
+
+        <RadioButton
+            android:id="@+id/rb_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/female" />
+
+    </RadioGroup>
+
     <Button
         android:id="@+id/buttonSignIn"
         android:layout_width="328dp"

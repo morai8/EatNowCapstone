@@ -14,7 +14,7 @@
     <fragment
         android:id="@+id/navigation_scan"
         android:name="com.dicoding.picodiploma.eatnowcapstone.ui.dashboard.DashboardFragment"
-        android:label="@string/scan"
+        android:label="@string/search"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
