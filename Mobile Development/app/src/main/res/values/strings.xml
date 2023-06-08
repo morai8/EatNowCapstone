@@ -32,4 +32,5 @@
     <string name="current">Current Password</string>
     <string name="new_password">New Password</string>
     <string name="reEnter">Re-Enter New Password</string>
+    <string name="confPassword">Confirm Password</string>
 </resources>

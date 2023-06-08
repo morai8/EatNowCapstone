@@ -7,8 +7,8 @@
     tools:context=".RegisterActivity">
     <ImageView
         android:id="@+id/iv_logo"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:src="@drawable/logo"
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,8 +29,8 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/NameLayout"
         android:layout_width="0dp"
-        android:hint="@string/full_name"
         android:layout_height="wrap_content"
+        android:hint="@string/full_name"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginTop="24dp"
@@ -40,6 +40,7 @@
         app:startIconDrawable="@drawable/person_white">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/nameInputField"
+            android:maxLines="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -57,6 +58,7 @@
         app:startIconDrawable="@drawable/message">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/emailField"
+            android:maxLines="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -64,6 +66,7 @@
         android:id="@+id/passwordLayout"
         android:hint="@string/password"
         android:layout_width="0dp"
+        app:passwordToggleEnabled="true"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
@@ -74,11 +77,33 @@
         app:startIconDrawable="@drawable/eye">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/passwordField"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/confPasswordLayout"
+        android:hint="@string/confPassword"
+        app:passwordToggleEnabled="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordLayout"
+        app:startIconDrawable="@drawable/eye">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/confPasswordField"
+            android:inputType="textPassword"
+            android:maxLines="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </com.google.android.material.textfield.TextInputLayout>
     <Button
-        android:id="@+id/buttonSignIn"
+        android:id="@+id/buttonRegister"
         android:layout_width="328dp"
         android:layout_height="48dp"
         android:backgroundTint="@color/light_green"
@@ -86,7 +111,7 @@
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordLayout"
+        app:layout_constraintTop_toBottomOf="@+id/confPasswordLayout"
         android:layout_marginTop="24dp"/>
 
 
