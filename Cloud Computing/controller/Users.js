@@ -2,22 +2,21 @@ import Users from "../models/UserModel.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
-export default Users;
-
 export const getUsers = async (req, res) => {
   try {
-    const token = req.headers.authorization;
-    if (!token) {
+    const accessToken = req.headers.authorization.split(" ")[1];
+    if (!accessToken) {
       return res.status(401).json({ error: "Access token is missing" });
     }
 
-    const tokenValue = token.split(" ")[1];
-
     jwt.verify(
-      tokenValue,
+      accessToken,
       process.env.ACCESS_TOKEN_SECRET,
       async (err, decoded) => {
         if (err) {
+          if (err.name === "TokenExpiredError") {
+            return res.status(401).json({ error: "Access token expired" });
+          }
           return res.status(401).json({ error: "Invalid access token" });
         }
 
@@ -49,31 +48,36 @@ export const getUsers = async (req, res) => {
 
 export const Register = async (req, res) => {
   const { name, email, password, confPassword } = req.body;
-  if (password !== confPassword)
-    return res.status(400).json({
-      msg: "Password and Confirm not suitable",
-    });
-  const userCount = await Users.count({ where: { email: email } });
-  if (userCount > 0) {
-    return res.status(400).json({
-      msg: "Email already exists",
-    });
+  if (password !== confPassword) {
+    return res
+      .status(400)
+      .json({ status: "error", message: "Password and Confirm do not match" });
   }
 
-  const salt = await bcrypt.genSalt();
-  const hashPassword = await bcrypt.hash(password, salt);
   try {
-    await Users.create({
+    const userCount = await Users.count({ where: { email: email } });
+    if (userCount > 0) {
+      return res
+        .status(400)
+        .json({ status: "error", message: "Email already exists" });
+    }
+
+    const salt = await bcrypt.genSalt();
+    const hashPassword = await bcrypt.hash(password, salt);
+
+    const newUser = await Users.create({
       name: name,
       email: email,
       password: hashPassword,
     });
-    res.json({ msg: "Register Success" });
+
+    res.json({ status: "success", data: [newUser] });
   } catch (error) {
     console.log(error);
-    res
-      .status(500)
-      .json({ error: "An error occurred while registering the user" });
+    res.status(500).json({
+      status: "error",
+      message: "An error occurred while registering the user",
+    });
   }
 };
 
@@ -88,13 +92,17 @@ export const Login = async (req, res) => {
     });
 
     if (!user) {
-      return res.status(404).json({ msg: "User not found" });
+      return res
+        .status(404)
+        .json({ status: "error", message: "User not found" });
     }
 
     const match = await bcrypt.compare(password, user.password);
 
     if (!match) {
-      return res.status(400).json({ msg: "Wrong password" });
+      return res
+        .status(400)
+        .json({ status: "error", message: "Wrong password" });
     }
 
     const userId = user.id;
@@ -104,36 +112,23 @@ export const Login = async (req, res) => {
       { userId, name, email: user.email },
       process.env.ACCESS_TOKEN_SECRET,
       {
-        expiresIn: "20s",
-      }
-    );
-
-    const refreshToken = jwt.sign(
-      { userId, name, email: user.email },
-      process.env.REFRESH_TOKEN_SECRET,
-      {
         expiresIn: "1d",
       }
     );
 
-    await Users.update(
-      { refresh_token: refreshToken },
-      {
-        where: {
-          id: userId,
-        },
-      }
-    );
+    const responseData = {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      token: accessToken,
+    };
 
-    res.cookie("refreshToken", refreshToken, {
-      httpOnly: true,
-      maxAge: 24 * 60 * 60 * 1000,
-    });
-
-    res.json({ accessToken });
+    res.json({ status: "success", data: responseData });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ error: "An error occurred while logging in" });
+    res
+      .status(500)
+      .json({ status: "error", message: "An error occurred while logging in" });
   }
 };
 
@@ -165,7 +160,7 @@ export const Logout = async (req, res) => {
   );
 
   res.clearCookie("refreshToken");
-  return res.sendStatus(200);
+  return res.json({ status: "success" });
 };
 
 export const updateProfile = async (req, res) => {
@@ -189,19 +184,23 @@ export const updateProfile = async (req, res) => {
 
     await user.save();
 
-    res.json({ msg: "Profile updated successfully" });
+    res.json({
+      status: "success",
+      data: [{ msg: "Profile updated successfully" }],
+    });
   } catch (error) {
     console.log(error);
-    res
-      .status(500)
-      .json({ error: "An error occurred while updating the profile" });
+    res.status(500).json({
+      status: "error",
+      message: "An error occurred while updating the profile",
+    });
   }
 };
 
 export const changePassword = async (req, res) => {
   try {
     const { currentPassword, newPassword, reenterPassword } = req.body;
-    const user = await Users.findOne({ email: req.userId });
+    const user = await Users.findOne({ where: { email: req.email } });
 
     if (!user) {
       return res.status(404).json({ error: "User not found" });
@@ -222,12 +221,15 @@ export const changePassword = async (req, res) => {
     user.password = hashedPassword;
     await user.save();
 
-    res.json({ msg: "Password changed successfully" });
+    res.json({
+      status: "success",
+      data: [{ msg: "Password changed successfully" }],
+    });
   } catch (error) {
     console.error("An error occurred while changing password:", error);
     res.status(500).json({
-      error: "An error occurred while changing password",
-      details: error.message,
+      status: "error",
+      message: "An error occurred while changing password",
     });
   }
 };
