@@ -42,7 +42,7 @@
         app:startIconDrawable="@drawable/message">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/emailInputField"
-            android:maxLength="1"
+            android:maxLines="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -64,7 +64,8 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/passwordInputField"
-            android:maxLength="1"
+            android:inputType="textPassword"
+            android:maxLines="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
