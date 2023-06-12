@@ -27,7 +27,7 @@ object ApiConfig {
             .addInterceptor(authenticatorInterceptor)
             .build()
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://74c5-113-11-180-109.ngrok-free.app/")
+            .baseUrl("https://74c5-113-11-180-109.ngrok-free.app")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         return retrofit.create(ApiService::class.java)
