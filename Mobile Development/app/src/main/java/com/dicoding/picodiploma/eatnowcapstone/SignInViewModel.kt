@@ -12,7 +12,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class SignInViewModel: ViewModel() {
-    val signInResponse_ = MutableLiveData<RegisterResponse>()
+    val signInResponse_ = MutableLiveData<SignInResponse>()
     fun signInCek(email : String,password : String){
         val signInRequest = SignInRequest(email,password)
         ApiConfig.getApi().signInAcc(signInRequest)
@@ -21,6 +21,7 @@ class SignInViewModel: ViewModel() {
                     call: Call<SignInResponse>,
                     response: Response<SignInResponse>
                 ){
+                    signInResponse_.postValue(response.body())
                     Log.d("Berhasil", "onResponse: ${response.body()}")
                 }
                 override fun onFailure(call: Call<SignInResponse>, t: Throwable) {

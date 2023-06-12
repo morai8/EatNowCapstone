@@ -1,7 +1,10 @@
 package com.dicoding.picodiploma.eatnowcapstone
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.dicoding.picodiploma.eatnowcapstone.databinding.ActivitySignInBinding
 
@@ -20,6 +23,20 @@ class SignInActivity : AppCompatActivity() {
             val password = binding.passwordInputField.text.toString()
 
             viewModel.signInCek(email,password)
+            observeResponse()
+        }
+    }
+    private fun observeResponse() {
+        viewModel.signInResponse_.observe(this) { responseMessage ->
+            Log.d("SignInActivity", "observeResponse: $responseMessage")
+            if (responseMessage.status == "success") {
+                val intentToLanding = Intent(this,BmiActivity::class.java)
+                startActivity(intentToLanding)
+                Toast.makeText(this,responseMessage.status, Toast.LENGTH_SHORT).show()
+                finish()
+            } else{
+                Toast.makeText(this,responseMessage.status, Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }
