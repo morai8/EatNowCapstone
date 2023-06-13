@@ -71,7 +71,13 @@ export const Register = async (req, res) => {
       password: hashPassword,
     });
 
-    res.json({ status: "success", data: [newUser] });
+    const responseData = {
+      id: newUser.id,
+      name: newUser.name,
+      email: newUser.email,
+    };
+
+    res.json({ status: "success", data: responseData });
   } catch (error) {
     console.log(error);
     res.status(500).json({
