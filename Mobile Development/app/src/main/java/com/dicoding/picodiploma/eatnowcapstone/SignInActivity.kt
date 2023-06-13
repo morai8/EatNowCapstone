@@ -26,6 +26,17 @@ class SignInActivity : AppCompatActivity() {
             observeResponse()
         }
     }
+    private fun checkLoginStatus() {
+        if (PreferenceHelper.isFirstLogin(this)) {
+            val intentToBmi = Intent(this, BmiActivity::class.java)
+            startActivity(intentToBmi)
+            finish()
+        } else {
+            val intentToLanding = Intent(this, LandingActivity::class.java)
+            startActivity(intentToLanding)
+            finish()
+        }
+    }
     private fun observeResponse() {
         viewModel.signInResponse_.observe(this) { responseMessage ->
             Log.d("SignInActivity", "observeResponse: $responseMessage")
