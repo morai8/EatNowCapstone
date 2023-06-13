@@ -15,7 +15,6 @@
         android:padding="8dp"
         android:text="Write Your Ingredient Here..."
         android:textSize="16sp"
-        android:drawableLeft="@drawable/ic_search_white"
         android:background="@drawable/rounded_background"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,7 +37,7 @@
     <Button
         android:id="@+id/btn_More"
         android:layout_width="125dp"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:text="Add more..."
         android:textAlignment="center"
         android:textSize="14sp"
@@ -47,6 +46,17 @@
         android:layout_marginEnd="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dynamic_Textview" />
+
+    <Button
+        android:id="@+id/src_Button"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:text="Search Recipes"
+       android:drawableLeft="@drawable/ic_search_white"
+        android:backgroundTint="@color/light_green"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
