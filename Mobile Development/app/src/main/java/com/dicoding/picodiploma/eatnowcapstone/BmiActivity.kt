@@ -1,5 +1,6 @@
 package com.dicoding.picodiploma.eatnowcapstone
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -16,7 +17,9 @@ class BmiActivity : AppCompatActivity() {
         binding = ActivityBmiBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+
+
+       sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
 
         binding.buttonSubmit.setOnClickListener {
             val heightString = binding.heightField.text.toString()
@@ -31,9 +34,15 @@ class BmiActivity : AppCompatActivity() {
                     R.id.rb_female -> "female"
                     else -> ""
                 }
-                sharedPreferences.edit().putString("gender", gender).apply()
-                sharedPreferences.edit().putInt("height", height).apply()
-                sharedPreferences.edit().putInt("weight", weight).apply()
+                val sharedPreferencesHeight = getSharedPreferences(
+                    getString(R.string.shared_pref), Context.MODE_PRIVATE) ?:
+                    return@setOnClickListener
+                with (sharedPreferencesHeight.edit()){
+                    putInt("height",heightString.toInt())
+                    putInt("weight",weightString.toInt())
+                    putString("gender",gender)
+                    apply()
+                }
 
 
                 PreferenceHelper.setFirstLogin(this, false)
@@ -42,6 +51,8 @@ class BmiActivity : AppCompatActivity() {
                 startActivity(intentToHomeActivity)
             }
         }
+
+        retrieveSavedData()
     }
 
     private fun retrieveSavedData() {

@@ -8,31 +8,22 @@
     android:id="@+id/src_Layout"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/dynamic_Textview"
+    <EditText
+        android:id="@+id/et_ingredient"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
-        android:text="Write Your Ingredient Here..."
+        android:drawableLeft="@drawable/ic_search_white"
+        android:hint="Write Your Ingredient Here..."
         android:textSize="16sp"
         android:background="@drawable/rounded_background"
-        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginStart="35dp"
         android:layout_marginEnd="35dp"
         android:layout_marginTop="84dp" />
-
-<!--    <ImageView-->
-<!--        android:id="@+id/iv_logo"-->
-<!--        android:layout_width="70dp"-->
-<!--        android:layout_height="70dp"-->
-<!--        android:src="@drawable/logo"-->
-<!--        android:layout_marginTop="10dp"-->
-<!--        android:layout_marginLeft="40dp"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <Button
         android:id="@+id/btn_More"
@@ -45,19 +36,18 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="40dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dynamic_Textview" />
+        app:layout_constraintTop_toBottomOf="@+id/et_ingredient" />
 
     <Button
         android:id="@+id/src_Button"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:text="Search Recipes"
-       android:drawableLeft="@drawable/ic_search_white"
+
         android:backgroundTint="@color/light_green"
         android:layout_marginBottom="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -40,16 +40,22 @@ class SignInActivity : AppCompatActivity() {
     private fun observeResponse() {
         viewModel.signInResponse_.observe(this) { responseMessage ->
             Log.d("SignInActivity", "observeResponse: $responseMessage")
-            if (responseMessage.status == "success") {
-                PreferenceHelper.setFirstLogin(this, true)
-                val intentToLanding = Intent(this, LandingActivity::class.java)
-                startActivity(intentToLanding)
-                Toast.makeText(this, responseMessage.status, Toast.LENGTH_SHORT).show()
-                finish()
+            if (responseMessage != null) {
+                if (responseMessage.status == "success") {
+                    PreferenceHelper.setFirstLogin(this, true)
+                    val intentToLanding = Intent(this, LandingActivity::class.java)
+                    startActivity(intentToLanding)
+                    Toast.makeText(this, responseMessage.status, Toast.LENGTH_SHORT).show()
+                    finish()
+                } else {
+                    Toast.makeText(this, responseMessage.status, Toast.LENGTH_SHORT).show()
+                }
+                checkLoginStatus()
             } else {
-                Toast.makeText(this, responseMessage.status, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "An unexpected error occurred. Please try again.", Toast.LENGTH_SHORT).show()
+                Log.e("SignInActivity", "observeResponse: responseMessage is null")
             }
-            checkLoginStatus()
         }
     }
+
 }

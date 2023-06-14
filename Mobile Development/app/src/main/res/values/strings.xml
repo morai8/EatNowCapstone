@@ -36,4 +36,5 @@
     <string name="daily">Your Daily Calories</string>
     <string name="recommendation">Your Recommendation</string>
     <string name="bookmark">Bookmarked Food</string>
+    <string name="shared_pref">Shared Preference</string>
 </resources>
