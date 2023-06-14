@@ -33,4 +33,7 @@
     <string name="new_password">New Password</string>
     <string name="reEnter">Re-Enter New Password</string>
     <string name="confPassword">Confirm Password</string>
+    <string name="daily">Your Daily Calories</string>
+    <string name="recommendation">Your Recommendation</string>
+    <string name="bookmark">Bookmarked Food</string>
 </resources>

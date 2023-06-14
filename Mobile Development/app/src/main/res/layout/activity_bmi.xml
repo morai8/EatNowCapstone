@@ -109,7 +109,7 @@
     </RadioGroup>
 
     <Button
-        android:id="@+id/buttonSignIn"
+        android:id="@+id/buttonSubmit"
         android:layout_width="328dp"
         android:layout_height="48dp"
         android:layout_marginTop="24dp"
