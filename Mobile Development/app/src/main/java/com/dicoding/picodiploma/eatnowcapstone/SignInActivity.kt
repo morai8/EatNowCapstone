@@ -41,13 +41,15 @@ class SignInActivity : AppCompatActivity() {
         viewModel.signInResponse_.observe(this) { responseMessage ->
             Log.d("SignInActivity", "observeResponse: $responseMessage")
             if (responseMessage.status == "success") {
-                val intentToLanding = Intent(this,BmiActivity::class.java)
+                PreferenceHelper.setFirstLogin(this, true)
+                val intentToLanding = Intent(this, LandingActivity::class.java)
                 startActivity(intentToLanding)
-                Toast.makeText(this,responseMessage.status, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, responseMessage.status, Toast.LENGTH_SHORT).show()
                 finish()
-            } else{
-                Toast.makeText(this,responseMessage.status, Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, responseMessage.status, Toast.LENGTH_SHORT).show()
             }
+            checkLoginStatus()
         }
     }
 }

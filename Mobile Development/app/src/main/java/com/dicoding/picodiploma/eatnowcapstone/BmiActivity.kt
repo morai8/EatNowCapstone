@@ -10,14 +10,13 @@ import android.preference.PreferenceManager
 class BmiActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBmiBinding
     private lateinit var sharedPreferences: SharedPreferences
-    override fun onCreate(savedInstanceState: Bundle?) {
 
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityBmiBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
-        PreferenceHelper.setFirstLogin(this, false)
 
         binding.buttonSubmit.setOnClickListener {
             val heightString = binding.heightField.text.toString()
@@ -33,22 +32,30 @@ class BmiActivity : AppCompatActivity() {
                     else -> ""
                 }
                 sharedPreferences.edit().putString("gender", gender).apply()
-
                 sharedPreferences.edit().putInt("height", height).apply()
-
                 sharedPreferences.edit().putInt("weight", weight).apply()
 
-            } else {
-            }
-            val intentToHomeActivity = Intent(this,HomeActivity::class.java)
-            startActivity(intentToHomeActivity)
-        }
 
+                PreferenceHelper.setFirstLogin(this, false)
+
+                val intentToHomeActivity = Intent(this, HomeActivity::class.java)
+                startActivity(intentToHomeActivity)
+            }
+        }
     }
+
     private fun retrieveSavedData() {
         val gender = sharedPreferences.getString("gender", "")
         val height = sharedPreferences.getInt("height", 0)
         val weight = sharedPreferences.getInt("weight", 0)
 
+        if (gender.isNullOrEmpty() || height == 0 || weight == 0) {
+            PreferenceHelper.setFirstLogin(this, true)
+            val intentToBmi = Intent(this, BmiActivity::class.java)
+            startActivity(intentToBmi)
+        } else {
+            val intentToHomeActivity = Intent(this, HomeActivity::class.java)
+            startActivity(intentToHomeActivity)
+        }
     }
 }
