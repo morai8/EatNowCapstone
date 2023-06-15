@@ -27,6 +27,10 @@ app.get("/", (req, res) => {
   res.send("Welcome to API");
 });
 
-app.listen(5000, () =>
-  console.log("Server running at port http://localhost:5000")
-);
+app.listen(8080, "0.0.0.0", () => {
+  console.log("Server running at port http://0.0.0.0:8080");
+});
+
+// app.listen(8080, () => {
+//   console.log('Server running at port http://0.0.0.0:8080');
+// });

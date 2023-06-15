@@ -65,4 +65,8 @@
    - install client mysql `sudo apt-get install mysql-client`
    - connect to sql `mysql -h your_public_IP_address_SQL -u root -p`
    - create db `create database my_database;`
-   - change
+   - change config(conncetion) customize with cloud sql
+4. Run APIs without opening SSH vm
+   - install pm2 `npm install pm2 -g`
+   - run pm2 `pm2 start npm --name Name_Api --watch -- run start`
+   - cek pm2 `pm2 list`
