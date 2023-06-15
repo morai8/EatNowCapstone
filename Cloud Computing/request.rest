@@ -1,0 +1,66 @@
+# Get Users
+GET http://localhost:5000/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE2LCJuYW1lIjoic29vbjkiLCJlbWFpbCI6InNvb245QGdtYWlsLmNvbSIsImlhdCI6MTY4NjY2MzQ3MSwiZXhwIjoxNjg2NzQ5ODcxfQ.VspGkYbYZ-esPbTMCqRAGrcDgJUOxkfnOyxYdJsoBks
+###
+
+# Register
+POST http://localhost:5000/register
+Content-Type: application/json
+
+{
+    "name": "soon9",
+    "email": "soon9@gmail.com",
+    "password": "54321",
+    "confPassword": "54321"
+}
+
+###
+
+# Login
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email": "soon9@gmail.com",
+    "password": "54321" 
+}
+
+###
+
+# Refresh Token
+GET http://localhost:5000/token
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsIm5hbWUiOiJzb29uMiIsImVtYWlsIjoic29vbjJAZ21haWwuY29tIiwiaWF0IjoxNjg2MzE5Nzg0LCJleHAiOjE2ODY0MDYxODR9.oMjW8VvWIAREdGFmKBjMquhUH7-F37OW4TdJGQbqx1k
+
+
+###
+
+# Update Profile
+PUT http://localhost:5000/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE2LCJuYW1lIjoic29vbjkiLCJlbWFpbCI6InNvb245QGdtYWlsLmNvbSIsImlhdCI6MTY4NjY2MzQ3MSwiZXhwIjoxNjg2NzQ5ODcxfQ.VspGkYbYZ-esPbTMCqRAGrcDgJUOxkfnOyxYdJsoBks
+Content-Type: application/json
+
+{
+  "gender": "male",
+  "weight": 50,
+  "height": 165
+}
+
+###
+
+# Change Password
+PUT http://localhost:5000/change-password
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJzb29uIiwiZW1haWwiOiJzb29uQGdtYWlsLmNvbSIsImlhdCI6MTY4NjMxNDA5MiwiZXhwIjoxNjg2MzE0MTEyfQ.kLOLsOX7TKHA9QP-1zNKALzkqeWJ74FZUIqBKPzk4no
+Content-Type: application/json
+
+{
+  "currentPassword": "54321",
+  "newPassword": "password",
+  "reenterPassword": "password"
+}
+
+
+###
+
+# Logout
+DELETE http://localhost:5000/logout
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJzb29uIiwiZW1haWwiOiJzb29uQGdtYWlsLmNvbSIsImlhdCI6MTY4NjMxNzMwNSwiZXhwIjoxNjg2NDAzNzA1fQ.KcpJQJttBqoXh1VpPQ9eQoDfvfLx4qz_sneV5gPCIKw
