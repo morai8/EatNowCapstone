@@ -27,7 +27,7 @@
         android:layout_marginStart="70dp"
         android:layout_marginEnd="70dp"
         android:indeterminate="true"
-        android:indeterminatTint="@color/light_green"
+        android:indeterminateTint="@color/light_green"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_logo" />
