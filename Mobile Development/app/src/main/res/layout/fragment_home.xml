@@ -11,8 +11,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
-        android:text="@string/daily"
         android:layout_marginTop="66dp"
+        android:text="@string/daily"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,13 +21,109 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_grafik"
         android:layout_width="300dp"
-        android:layout_height="150dp"
+        android:layout_height="200dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_daily"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/tv_daily">
 
         <TextView
+            android:id="@+id/breakfast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/txt_brkfast"
+            app:layout_constraintBottom_toTopOf="@+id/progressBar1"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/progressBar1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:indeterminate="false"
+            android:progress="65"
+            android:progressDrawable="@drawable/circle_progress_bar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="300kkal"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/progressBar1"
+            app:layout_constraintEnd_toEndOf="@+id/progressBar1"
+            app:layout_constraintStart_toStartOf="@+id/progressBar1"
+            app:layout_constraintTop_toTopOf="@+id/progressBar1" />
+
+        <TextView
+            android:id="@+id/lunch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="128dp"
+            android:text="@string/txt_lunch"
+            app:layout_constraintBottom_toTopOf="@+id/progressBar2"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="100dp"
+            android:indeterminate="false"
+            android:progress="75"
+            android:progressDrawable="@drawable/circle_progress_bar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            app:layout_constraintVertical_bias="0.483" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="350kkal"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/progressBar2"
+            app:layout_constraintEnd_toEndOf="@+id/progressBar2"
+            app:layout_constraintStart_toEndOf="@+id/progressBar1"
+            app:layout_constraintTop_toTopOf="@+id/progressBar2" />
+
+        <TextView
+            android:id="@+id/dinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_dinner"
+            app:layout_constraintBottom_toTopOf="@+id/progressBar3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.907"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/progressBar3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="200dp"
+            android:indeterminate="false"
+            android:progress="100"
+            android:progressDrawable="@drawable/circle_progress_bar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            app:layout_constraintVertical_bias="0.483" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="400kkal"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/progressBar3"
+            app:layout_constraintEnd_toEndOf="@+id/progressBar3"
+            app:layout_constraintStart_toEndOf="@+id/progressBar2"
+            app:layout_constraintTop_toTopOf="@+id/progressBar3" />
+
+        <TextView
+            android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/daily"
@@ -40,10 +136,29 @@
         android:id="@+id/tv_bookmark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/bookmark"
         android:layout_marginStart="22dp"
+        android:text="@string/bookmark"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cl_grafik" />
+
+    <ImageView
+        android:id="@+id/iv_makan1"
+        android:layout_width="210dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_bookmark"
+        tools:src="@drawable/makan" />
+
+    <ImageView
+        android:id="@+id/iv_makan2"
+        android:layout_width="210dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintStart_toEndOf="@+id/iv_makan1"
+        app:layout_constraintTop_toBottomOf="@+id/tv_bookmark"
+        tools:src="@drawable/makan" />
 </androidx.constraintlayout.widget.ConstraintLayout>

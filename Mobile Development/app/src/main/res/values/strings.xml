@@ -23,8 +23,7 @@
     <string name="tap_edit">Tap to Edit Your BMI</string>
     <string name="change_password">Change Password</string>
     <string name="tap_change">Change Your Password Here</string>
-    <string name="bantuan">Bantuan dan Masukan</string>
-    <string name="about">Tentang Aplikasi</string>
+    <string name="about">About Application</string>
     <string name="log_out">Log Out</string>
     <string name="full_name">Full Name</string>
     <string name="email">Email</string>
@@ -37,4 +36,8 @@
     <string name="recommendation">Your Recommendation</string>
     <string name="bookmark">Bookmarked Food</string>
     <string name="shared_pref">Shared Preference</string>
+    <string name="version">App version 1.0</string>
+    <string name="txt_brkfast">Breakfast</string>
+    <string name="txt_lunch">Lunch</string>
+    <string name="txt_dinner">Dinner</string>
 </resources>
