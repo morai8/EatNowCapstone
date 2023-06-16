@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.dicoding.picodiploma.eatnowcapstone.AboutActivity
 import com.dicoding.picodiploma.eatnowcapstone.ChangePasswordActivity
 import com.dicoding.picodiploma.eatnowcapstone.EditBmiActivity
 import com.dicoding.picodiploma.eatnowcapstone.SignInActivity
@@ -39,6 +40,13 @@ class NotificationsFragment : Fragment() {
         linearLayoutChange.setOnClickListener {
             val intent = Intent(requireContext(), ChangePasswordActivity::class.java)
             startActivity(intent)
+        }
+
+        val aboutLayout: LinearLayout = binding.bantuanLayout
+
+        aboutLayout.setOnClickListener{
+            val intentabout = Intent(requireContext(), AboutActivity::class.java)
+            startActivity(intentabout)
         }
 
         val logoutLayout : LinearLayout = binding.logoutLayout
