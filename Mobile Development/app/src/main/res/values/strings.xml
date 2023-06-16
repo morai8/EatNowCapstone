@@ -40,4 +40,6 @@
     <string name="txt_brkfast">Breakfast</string>
     <string name="txt_lunch">Lunch</string>
     <string name="txt_dinner">Dinner</string>
+    <string name="privacy">Privacy Notice</string>
+    <string name="terms_use">Terms of Use</string>
 </resources>
