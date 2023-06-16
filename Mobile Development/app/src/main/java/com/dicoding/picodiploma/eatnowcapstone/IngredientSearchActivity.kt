@@ -19,7 +19,7 @@ class IngredientSearchActivity: AppCompatActivity() {
         setContentView(R.layout.fragment_dashboard)
 
         containerLayout = findViewById(R.id.src_Layout)
-        addButton = findViewById(R.id.btn_More)
+
 
         addButton.setOnClickListener{
             addNewTextView()
