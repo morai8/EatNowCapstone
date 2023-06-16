@@ -21,12 +21,8 @@ for i, recipe_ingredients in enumerate(all_ingredients):
     for ingredient in recipe_ingredients:
       ingredient_index = ingredient_map[ingredient]
       X_train[i, ingredient_index] = 1
-
-# Get Input from User
-user_input = []
-for _ in range(4):
-    ingredient = input("Enter an ingredient: ")
-    user_input.append(ingredient)
+      
+user_input = ['garlic', 'chicken', 'oil', 'onion']
 
 # Preprocess user input
 X_user = np.zeros((1, len(unique_ingredients)))
